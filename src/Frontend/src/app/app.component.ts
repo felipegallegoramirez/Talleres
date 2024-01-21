@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Frontend';
+
+  
+
+  ocultar(){
+    const nav=document.querySelector("#nav")
+    if(nav?.classList.contains("oculto")){
+      nav.classList.remove("oculto")
+    }else{
+      nav?.classList.add("oculto")
+    }
+  }
 }

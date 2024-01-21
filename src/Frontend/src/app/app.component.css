@@ -1,0 +1,55 @@
+
+
+.logo{
+    width: 100px;
+    margin: 20px 40px;
+    position: absolute;
+}
+
+.nav{
+    left:-300px;
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    background-color: var(--g);
+    transition: 1s left;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    top: 0px;
+}
+
+.nav>.nav__logo{
+    width: 100px;
+}
+
+.nav>.nav__link{
+
+    margin: 20px 5px;
+}
+
+.nav>.nav__link>a,.nav>.nav__bottom>.nav__link--bottom>a {
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--b);
+}
+
+.nav>.nav__bottom>.nav__divider{
+    background-color: var(--b);
+    height: 2px;
+    border-radius: 20px;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.nav__bottom{
+    padding: 20px 40px;
+    position: absolute;
+    width: 200px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.oculto{
+    left: 0px;
+}
