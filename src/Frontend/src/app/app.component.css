@@ -1,9 +1,10 @@
 
 
 .logo{
-    width: 100px;
-    margin: 20px 40px;
+    width: 80px;
+    margin: 20px 20px;
     position: absolute;
+    top: 0px;
 }
 
 .nav{
@@ -11,7 +12,7 @@
     width: 300px;
     height: 100vh;
     position: fixed;
-    padding: 20px 40px;
+    padding: 20px 20px;
     box-sizing: border-box;
     background-color: var(--g);
     transition: 1s left;
@@ -20,12 +21,12 @@
 }
 
 .nav>.nav__logo{
-    width: 100px;
+    width: 80px;
 }
 
 .nav>.nav__link{
 
-    margin: 20px 5px;
+    margin: 20px 25px;
 }
 
 .nav>.nav__link>a,.nav>.nav__bottom>.nav__link--bottom>a {
@@ -53,3 +54,8 @@
 .oculto{
     left: 0px;
 }
+
+.content{
+    margin: 120px 40px;
+}
+

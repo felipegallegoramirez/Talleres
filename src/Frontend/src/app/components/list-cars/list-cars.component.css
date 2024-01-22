@@ -1,0 +1,45 @@
+.input{
+    padding: 20px 80px;
+    display: flex;
+    align-items: center;
+}
+
+.input>input{
+    width: calc(100% - 200px);
+    box-sizing: border-box;
+    outline: none;
+    padding: 4px 10px;
+    box-sizing: border-box;
+}
+
+.input>input:active{
+    outline: none;
+}
+
+.input>span{
+    padding: 5px 10px;
+    margin: 0px 40px;
+    box-sizing: border-box;
+    width: 120px;
+    text-align: center;
+    border-radius: 5px;
+    outline: 2px solid var(--b1);
+    cursor: pointer;
+    user-select: none;
+}
+
+.input>span:active{
+    color: white;
+    background-color: var(--b1);
+}
+
+.grid-list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
+    padding: 60px 80px;
+}
+
+.grid-list>p{
+    width: 100%;
+}
