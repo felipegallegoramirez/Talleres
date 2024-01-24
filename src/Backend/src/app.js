@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const router = require("../routes")
 const dbConnectMongoDB = require("../config/mongo");
-const { logErrors, errorHandler, boomErrorHandler, deleteimage } = require('../midleware/boomerrors');
+const { logErrors, errorHandler, boomErrorHandler } = require('../midleware/boomerrors');
 //const path = require('path');
 
 
@@ -30,7 +30,6 @@ app.use(cors(options));
 //app.use('/public/images', express.static(path.resolve('public/storage/r')));
 app.use(router)
 app.use(logErrors);
-app.use(deleteimage)
 app.use(boomErrorHandler);
 app.use(errorHandler);
 

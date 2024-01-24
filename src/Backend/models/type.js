@@ -3,55 +3,31 @@ const mongoose = require("mongoose");
 //const mongoosePaginateAggregate = require("mongoose-aggregate-paginate-v2");
 const StorageScheme = new mongoose.Schema(
   {
-    email: {
+    model: {
       type: String,
       required: true,
       unique: true,
       trim: true
     },
-    password: {
+    brand: {
       type: String,
-      require: true,
+      required: true,
     },
-    dni: {
-      type: Number,
-
-    },
-    name: {
-      type: String,
-      require: true
-    },
-    phone: {
-      type: Number,
-
-    },
-    /*
-    verified: {
-      state: {
-        type: Number,
-        require: false
-      },
-      code: {
-        type: Number,
-        require: false
-      },
-    },
-    */
-    shop: {
+    cars: [{
       id: {
         type: String,
-        require: true
+        require: true,
       },
-      permissions: [{
-        type: Number,
-        require: true
-      }]
-    },
-    ips:[{
+      plate: {
         type: String,
-        require: true
-      }]
-    },
+        require: true,
+      },
+    }],
+    monitoringId: [{
+        type: String,
+        require: true,
+      }],
+  },
 
 
   {

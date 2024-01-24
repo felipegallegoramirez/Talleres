@@ -1,11 +1,11 @@
-const {delet} = require("../utils/imgdelete")
+//const {delet} = require("../utils/imgdelete")
 
 
 function logErrors (err, req, res, next) {
     console.error(err);
     next(err);
   }
-
+/*
 async function deleteimage(err,req,res,next){
   if (req.file) {
     image = req.file.filename
@@ -13,6 +13,7 @@ async function deleteimage(err,req,res,next){
   }
   next(err)
 }
+*/
   
   function errorHandler(err, req, res, next) {
     res.status(500).json({
@@ -31,5 +32,5 @@ async function deleteimage(err,req,res,next){
   }
   
   
-  module.exports = { logErrors, errorHandler, boomErrorHandler ,deleteimage}
+  module.exports = { logErrors, errorHandler, boomErrorHandler }
   
