@@ -26,4 +26,4 @@ const StorageScheme = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.models.Users || mongoose.model("Users", StorageScheme);
+module.exports = mongoose.models.Category || mongoose.model("Category", StorageScheme);

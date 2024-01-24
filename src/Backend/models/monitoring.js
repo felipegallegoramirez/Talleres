@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 //const mongoosePaginateAggregate = require("mongoose-aggregate-paginate-v2");
 const StorageScheme = new mongoose.Schema(
   {
+    name:{
+      type: String,
+      require: true,
+    },
     review: [{
       type: {
         type: String,
@@ -31,4 +35,4 @@ const StorageScheme = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.models.Users || mongoose.model("Users", StorageScheme);
+module.exports = mongoose.models.Monitoring || mongoose.model("Monitoring", StorageScheme);

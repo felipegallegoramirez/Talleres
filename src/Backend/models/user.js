@@ -37,7 +37,7 @@ const StorageScheme = new mongoose.Schema(
       },
     },
     */
-    shop: {
+    mechanic : {
       id: {
         type: String,
         require: true

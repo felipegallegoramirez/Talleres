@@ -3,55 +3,43 @@ const mongoose = require("mongoose");
 //const mongoosePaginateAggregate = require("mongoose-aggregate-paginate-v2");
 const StorageScheme = new mongoose.Schema(
   {
-    email: {
+    title: {
       type: String,
       required: true,
-      unique: true,
-      trim: true
     },
-    password: {
+    state: {
       type: String,
       require: true,
     },
-    dni: {
-      type: Number,
-
-    },
-    name: {
+    sumary: {
       type: String,
-      require: true
+      require: true,
     },
-    phone: {
-      type: Number,
-
-    },
-    /*
-    verified: {
-      state: {
-        type: Number,
-        require: false
-      },
-      code: {
-        type: Number,
-        require: false
-      },
-    },
-    */
-    shop: {
+    monitoring: {
       id: {
         type: String,
         require: true
       },
-      permissions: [{
-        type: Number,
-        require: true
-      }]
-    },
-    ips:[{
+      name: [{
         type: String,
         require: true
       }]
     },
+    date: [{
+      type: String,
+      require: true
+    }],
+    worker: {
+      id: {
+        type: String,
+        require: true
+      },
+      name: [{
+        type: String,
+        require: true
+      }]
+    },
+  },
 
 
   {
@@ -60,4 +48,4 @@ const StorageScheme = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.models.Users || mongoose.model("Users", StorageScheme);
+module.exports = mongoose.models.Actions || mongoose.model("Actions", StorageScheme);
