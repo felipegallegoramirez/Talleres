@@ -1,1 +1,149 @@
-<p>admon works!</p>
+
+<div class="options">
+  <div (click)="mostrar(['cars','oculter','op1'],['actions','op2'])">
+    <span class="material-symbols-outlined"> garage </span>
+    <h2>Modelos</h2>
+  </div>
+  <div (click)="mostrar(['actions','oculter'],['cars'])">
+    <span class="material-symbols-outlined"> pending_actions </span>
+    <h2>Acciones</h2>
+  </div>
+</div>
+
+<div id="oculter" (click)="ocultar(['cars','actions','oculter'])" class="oculter oculto"></div>
+
+<div id="cars" class="inputModal oculto">
+    <div class="inputModal__election">
+        <button (click)="mostrar(['op1'],['op2'])">Categoria</button>
+        <button (click)="mostrar(['op2'],['op1'])">Modelos</button>
+    </div>
+    <div id="op1" class="inputModal__op oculto">
+        <div class="inputModal__select">
+            <span>Selecione la categoria</span>
+            <select name="" id="">
+                <option value="0">Nuevo</option>
+            </select>
+        </div>
+        <div class="inputModal__text">
+            <span>Nombre</span>
+            <input type="text">
+        </div>
+        <div class="inputModal__actions">
+            <div class="create oculto">
+                <button>Crear</button>
+            </div>
+
+            <div class="edit">
+                <button>Editar</button>
+                <button>Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="op2" class="inputModal__op">
+        <div class="inputModal__select">
+            <span>Seleccione el modelo</span>
+            <select name="" id="">
+                <option value="0">Nuevo</option>
+            </select>
+        </div>
+        <div class="inputModal__select">
+            <span>Seleccione la categoria del modelo</span>
+            <select name="" id="">
+                <option value="0">Nuevo</option>
+            </select>
+        </div>
+        <div class="inputModal__text">
+            <span>Modelo</span>
+            <input type="text">
+        </div>
+        <div class="inputModal__text">
+            <span>Marca</span>
+            <input type="text">
+        </div>
+        <div class="inputModal__check">
+            <span>Requerimientos</span>
+            <div class="inputModal__check__grid">
+                <div>
+                    <input type="checkbox">
+                    <span> Prueba 1</span>
+                </div>
+                <div>
+                    <input type="checkbox">
+                    <span> Prueba 2</span>
+                </div>
+                <div>
+                    <input type="checkbox">
+                    <span> Prueba 3</span>
+                </div>
+                <div>
+                    <input type="checkbox">
+                    <span> Prueba 4</span>
+                </div>
+            </div>
+        </div>
+        <div class="inputModal__actions">
+            <div class="create oculto">
+                <button>Crear</button>
+            </div>
+
+            <div class="edit">
+                <button>Editar</button>
+                <button>Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="actions" class="inputModal oculto">
+    <div class="inputModal__select">
+        <span>Selecione la accion</span>
+        <select name="" id="">
+            <option value="0">Nuevo</option>
+        </select>
+    </div>
+    <div class="inputModal__times">
+        <button (click)="timeadd()">Agregar</button>
+        <button (click)="timeremove()">Eliminar</button>
+        <div *ngFor="let number of count; let i = index" class="inputModal_times_container">
+            <div>
+                <div class="inputModal__select">
+                    <span>Selecione el modo</span>
+                    <select name="" id="">
+                        <option value="0">Km</option>
+                        <option value="1">Tiempo</option>
+                    </select>
+                </div>
+                <div class="inputModal__select">
+                    <span>Modo</span>
+                    <select name="" id="">
+                        <option value="0">Ciclico</option>
+                        <option value="1">Unico</option>
+                    </select>
+                </div>
+                <div class="inputModal__text">
+                    <span>Valor minimo</span>
+                    <input type="text">
+                </div>
+                <div class="inputModal__text">
+                    <span>Valor</span>
+                    <input type="text">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="inputModal__actions">
+        <div class="create oculto">
+            <button>Crear</button>
+        </div>
+
+        <div class="edit">
+            <button>Editar</button>
+            <button>Eliminar</button>
+        </div>
+    </div>
+
+</div>

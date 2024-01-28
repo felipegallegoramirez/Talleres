@@ -1,0 +1,185 @@
+.options{
+    display: flex;
+    padding: 0px 0px;
+    height: calc(100vh - 260px);
+    width: calc(100vw - 160px);
+    margin: 0px;
+    margin-left: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.options>div{
+    display: flex;
+    width: calc(50% - 20px);
+    height: calc(100% - 20px);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 8px;
+    flex-direction: column;
+}
+.options>div:hover{
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 3px 8px;
+}
+
+.options>div:active{
+    background-color: var(--b1);
+}
+
+
+.options>div>h2{
+    font-size: 24px;
+    transition: 0.8s font-size;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    user-select: none;
+}
+
+.options>div>span{
+    font-size: 80px;
+    color: var(--gi);
+    transition: 0.8s font-size;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    user-select: none;
+}
+
+.options>div:hover>span{
+    font-size: 120px;
+    color: var(--b1);
+}
+
+.options>div:hover>h2{
+    font-size: 30px;
+    color: var(--b1);
+}
+
+.options>div:active>span{
+    color: var(--w);
+}
+
+.options>div:active>h2{
+    color: var(--w);
+}
+
+.oculter{
+    position: absolute;
+    width: calc(100vw);
+    height: calc(100vh);
+    background-color: var(--b);
+    top: 0px;
+    left: 0px;
+    opacity: 0.6;
+}
+
+.inputModal{
+    top: 100px;
+    position: absolute;
+    width: 600px;
+    left: calc((100vw - 600px)/2);
+    height: calc(100vh - 200px );
+    background-color: var(--w);
+    border-radius: 15px;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.oculto{
+    visibility: hidden;
+    width:0px;
+    height:0px;
+    overflow: hidden;
+}
+
+.inputModal__election{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 10px 20px;
+    background-color: var(--b1);
+    border-radius: 5px;
+    color: var(--w);
+    outline: none;
+    border: none;
+}
+
+button:active{
+    background-color: var(--w);
+    color: var(--b1);
+    outline: 2px solid var(--b1);
+}
+
+.inputModal__actions{
+    margin-top: 20px;
+}
+
+.inputModal__actions button{
+    width: 150px;
+}
+
+.inputModal__actions>.create{
+ display: flex;
+ justify-content: flex-end;
+}
+
+.inputModal__actions>.edit{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+.inputModal__select{
+margin-bottom: 20px;
+}
+
+.inputModal__select>span{
+ margin-right: 20px;
+}
+
+.inputModal__text{
+    margin-bottom: 20px;
+}
+
+.inputModal__text>span{
+    margin-right: 20px;
+}
+
+.inputModal__check>span{
+    font-weight: 500;
+    margin-bottom: 80px;
+}
+
+.inputModal__check__grid{
+    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.inputModal__check__grid>div{
+    margin-bottom: 10px;
+}
+
+.inputModal__check__grid>div>span{
+    margin-left: 10px;
+}
+
+.inputModal__times>button{
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.inputModal_times_container{
+    padding: 10px;
+    margin: 20px;
+    outline: 1px solid var(--gi);
+}
