@@ -1,8 +1,8 @@
 <div class="input">
     <input type="text" name="" id="" placeholder="Placa - Dueño">
     <span class="material-symbols-outlined">search</span>
+    <button (click)="mostrar(['add','oculter'],[])">Crear</button>
 </div>
-
 <div class="grid-list">
 <p>Placa</p>
 <p>Dueño</p>
@@ -14,17 +14,60 @@
 <p>Guillermo Leon Gallego</p>
 <p>20/01/2003</p>
 <p>20/06/2003</p>
-<button>Visualizar</button>
-<p>QCO90D</p>
-<p>Guillermo Leon Gallego</p>
-<p>20/01/2003</p>
-<p>20/06/2003</p>
-<button>Visualizar</button>
-<p>QCO90D</p>
-<p>Guillermo Leon Gallego</p>
-<p>20/01/2003</p>
-<p>20/06/2003</p>
-<button>Visualizar</button>
+<button routerLink="/car/asd">Visualizar</button>
+</div>
 
+<div id="oculter" (click)="ocultar(['add','oculter'])" class="oculter oculto"></div>
+
+<div id="add" class="inputModal oculto">
+    <div class="inputModal__select">
+        <span>Selecione la accion</span>
+        <select name="" id="">
+            <option value="0">Nuevo</option>
+        </select>
+    </div>
+    <div class="inputModal__text">
+        <span>Placa</span>
+        <input type="text">
+    </div>
+    <div class="inputModal__text">
+        <span>Nombre dueño</span>
+        <input type="text">
+    </div>
+    <div class="inputModal__text">
+        <span>Cedula dueño</span>
+        <input type="text">
+    </div>
+    <div class="inputModal__text">
+        <span>Año</span>
+        <input type="text">
+    </div>
+    <div class="inputModal__text">
+        <span>Km</span>
+        <input type="text">
+    </div>
+    <div class="inputModal__select">
+        <span>Selecione la categoria</span>
+        <select name="" id="">
+            <option value="0">Deportivo</option>
+        </select>
+    </div>
+    <div class="inputModal__select">
+        <span>Selecione el modelo</span>
+        <select name="" id="">
+            <option value="0">Bmw 240</option>
+        </select>
+    </div>
+
+    <div class="inputModal__actions">
+        <div class="create oculto">
+            <button>Crear</button>
+        </div>
+
+        <div class="edit">
+            <button>Editar</button>
+            <button>Eliminar</button>
+        </div>
+    </div>
 
 </div>
