@@ -28,7 +28,7 @@ display: flex;
     padding-left: 10px;
 }
 .history{
-    padding: 20px;
+    padding: 0px 20px;
 }
 .history__card{
     padding: 10px 20px;
@@ -66,4 +66,134 @@ display: flex;
 
 .cambio{
     border-bottom: 4px solid var(--r);
+}
+
+.estable{
+    border-bottom: 4px solid var(--b1);
+}
+
+.oculter{
+    position: absolute;
+    width: calc(100vw);
+    height: calc(100vh);
+    background-color: var(--b);
+    top: 0px;
+    left: 0px;
+    opacity: 0.6;
+}
+
+.inputModal{
+    top: 100px;
+    position: absolute;
+    width: 600px;
+    left: calc((100vw - 600px)/2);
+    height: calc(100vh - 200px );
+    background-color: var(--w);
+    border-radius: 15px;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.oculto{
+    visibility: hidden;
+    width:0px;
+    height:0px;
+    overflow: hidden;
+}
+
+.inputModal__election{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+button{
+    padding: 10px 20px;
+    background-color: var(--b1);
+    border-radius: 5px;
+    color: var(--w);
+    outline: none;
+    border: none;
+}
+
+button:active{
+    background-color: var(--w);
+    color: var(--b1);
+    outline: 2px solid var(--b1);
+}
+
+.inputModal__actions{
+    margin-top: 20px;
+}
+
+.inputModal__actions button{
+    width: 150px;
+}
+
+.inputModal__actions>.create{
+ display: flex;
+ justify-content: flex-end;
+}
+
+.inputModal__actions>.edit{
+    display: flex;
+    justify-content: space-around;
+}
+
+.inputModal__select{
+margin-bottom: 20px;
+}
+
+.inputModal__select>span{
+ margin-right: 20px;
+}
+
+.inputModal__text{
+    margin-bottom: 20px;
+}
+
+.inputModal__text>span{
+    margin-right: 20px;
+}
+
+.inputModal__check>span{
+    font-weight: 500;
+    margin-bottom: 80px;
+}
+
+.inputModal__check__grid{
+    margin: 20px 0px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.inputModal__check__grid>div{
+    margin-bottom: 10px;
+}
+
+.inputModal__check__grid>div>span{
+    margin-left: 10px;
+}
+
+.inputModal__textarea{
+    margin-bottom: 20px;
+}
+
+.inputModal__textarea>span{
+    margin-right: 20px;
+}
+
+.inputModal__textarea>textarea{
+    margin-top: 10px;
+    resize: none;
+    width: 100%;
+}
+
+.actions{
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 20px;
 }

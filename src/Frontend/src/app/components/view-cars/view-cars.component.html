@@ -1,49 +1,129 @@
 <div class="principal">
-    <div class="principal__info">
-        <p><b>Placa</b></p>
-        <p>QCO90D</p>
-        <p><b>Nombre Dueño</b></p>
-        <p>Guillermo Leon Gallego Bedoya</p>
-        <p><b>Cedula dueño</b></p>
-        <p>1001418934</p>
-        <p><b>Año</b></p>
-        <p>2015</p>
-        <p><b>Kilometros</b></p>
-        <p>140000</p>
-        <p><b>Marca</b></p>
-        <p>Auteco</p>
-        <p><b>Modelo</b></p>
-        <p>Boxer ct100</p>
-    </div>
-    <div class="principal__actions">
-        <p><b>Aceite</b></p>
-        <p class="cambio">120000 kms</p>
-    </div>
-
-
+  <div class="principal__info">
+    <p><b>Placa</b></p>
+    <p>QCO90D</p>
+    <p><b>Nombre Dueño</b></p>
+    <p>Guillermo Leon Gallego Bedoya</p>
+    <p><b>Cedula dueño</b></p>
+    <p>1001418934</p>
+    <p><b>Año</b></p>
+    <p>2015</p>
+    <p><b>Kilometros</b></p>
+    <p>140000</p>
+    <p><b>Marca</b></p>
+    <p>Auteco</p>
+    <p><b>Modelo</b></p>
+    <p>Boxer ct100</p>
+  </div>
+  <div class="principal__actions">
+    <p><b>Aceite</b></p>
+    <p class="cambio">120000 kms</p>
+    <p><b>Liquido Frenos</b></p>
+    <p class="estable">120000 kms</p>
+    <p><b>Carburador</b></p>
+    <p class="estable">120000 kms</p>
+    <p><b>Lorem</b></p>
+    <p class="estable">0 kms</p>
+    <p><b>Lorem</b></p>
+    <p class="estable">0 kms</p>
+    <p><b>Lorem</b></p>
+    <p class="estable">0 kms</p>
+    <p><b>Lorem</b></p>
+    <p class="estable">0 kms</p>
+    <p><b>Lorem</b></p>
+    <p class="estable">0 kms</p>
+    <p><b>Lorem</b></p>
+    <p class="estable">0 kms</p>
+    <p><b>Lorem</b></p>
+    <p class="estable">0 kms</p>
+    
+  </div>
 </div>
 
 <div class="actions">
+    <button (click)="mostrar(['oculter','review'],[])">Agregar</button>
 </div>
 
 <div class="history">
-    <div class="history__card">
-        <div class="history__card__title">
-            <h2>titulo</h2>
-            <div>
-                <h4 class="gray">Felipe Gallego</h4>
-                <h4>20/01/2003</h4>
-            </div>
-        </div>
-        <h3>Situacion</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, perspiciatis accusantium ipsam error provident quo incidunt sed, soluta porro officia impedit earum esse beatae quod, exercitationem delectus consequuntur doloribus neque.</p>
-        <h3>Resumen trabajo</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa maxime voluptatibus est illo similique fugiat, corporis quae veniam eligendi et autem deserunt beatae dignissimos dolorem nostrum magni tenetur dolor delectus!</p>
-        <h3>Acciones</h3>
-        <div class="history__card__actions">
-                <p><b>Aceite</b></p>
-                <p><b>Liquido frenos</b></p>
-                <p><b>Presion llantas</b></p>
-        </div>
+  <div class="history__card">
+    <div class="history__card__title">
+      <h2>titulo</h2>
+      <div>
+        <h4 class="gray">Felipe Gallego</h4>
+        <h4>20/01/2003</h4>
+      </div>
     </div>
+    <h3>Situacion</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
+      perspiciatis accusantium ipsam error provident quo incidunt sed, soluta
+      porro officia impedit earum esse beatae quod, exercitationem delectus
+      consequuntur doloribus neque.
+    </p>
+    <h3>Resumen trabajo</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa maxime
+      voluptatibus est illo similique fugiat, corporis quae veniam eligendi et
+      autem deserunt beatae dignissimos dolorem nostrum magni tenetur dolor
+      delectus!
+    </p>
+    <h3>Acciones</h3>
+    <div class="history__card__actions">
+      <p><b>Aceite</b></p>
+      <p><b>Liquido frenos</b></p>
+      <p><b>Presion llantas</b></p>
+    </div>
+  </div>
+</div>
+
+<div
+  id="oculter"
+  (click)="ocultar(['review', 'oculter'])"
+  class="oculter oculto"
+></div>
+
+<div id="review" class="inputModal oculto">
+  <div class="inputModal__text">
+    <span>Titulo</span>
+    <input type="text" />
+  </div>
+  <div class="inputModal__textarea">
+    <span>Estado vehiculo</span>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+  </div>
+  <div class="inputModal__textarea">
+    <span>Resumen</span>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+  </div>
+  <div class="inputModal__check">
+    <span>Requerimientos</span>
+    <div class="inputModal__check__grid">
+      <div>
+        <input type="checkbox" />
+        <span> Prueba 1</span>
+      </div>
+      <div>
+        <input type="checkbox" />
+        <span> Prueba 2</span>
+      </div>
+      <div>
+        <input type="checkbox" />
+        <span> Prueba 3</span>
+      </div>
+      <div>
+        <input type="checkbox" />
+        <span> Prueba 4</span>
+      </div>
+    </div>
+  </div>
+  <div class="inputModal__actions">
+    <div class="create ">
+      <button>Crear</button>
+    </div>
+
+    <div class="edit oculto">
+      <button>Editar</button>
+      <button>Eliminar</button>
+    </div>
+  </div>
 </div>
