@@ -25,20 +25,20 @@ export class UserService {
     return this.http.post<User>(this.URL_API, user);
   }
 
-  getUsers(idshop:string) {
-    return this.http.get<User[]>(this.URL_API + `/${idshop}` );
+  getUsers() {
+    return this.http.get<User[]>(this.URL_API);
   }
 
-  getUser(id:string,idshop:string) {
-    return this.http.get<User>(this.URL_API + `/${idshop}/${id}` );
+  getUser(id:string) {
+    return this.http.get<User>(this.URL_API + `/${id}` );
   }
 
-  putUser(user: User,id:string,idshop:string) {
-    return this.http.put(this.URL_API + `/${idshop}/${id}`,user );
+  putUser(user: User,id:string) {
+    return this.http.put(this.URL_API + `/${id}`,user );
   }
 
-  deleteUser(id: string,idshop:string) {
-    return this.http.delete(this.URL_API + `/${idshop}/${id}` );
+  deleteUser(id: string) {
+    return this.http.delete(this.URL_API + `/${id}` );
   }
 
   
