@@ -1,18 +1,25 @@
-export class User {
+export class Monitoring {
   _id?: string;
-  email: string;
-  password: string;
   name: string;
+  review:Array<{
+    type: String,
+    ciclic: Boolean,
+    minValue: Number,
+    Value: Number
+    }>;
 
   constructor(
     _id :string = "",
-    email: string = "",
-    password: string = "",
     name: string = "",
+    review:Array<{
+      type: String,
+      ciclic: Boolean,
+      minValue: Number,
+      Value: Number
+      }>
   ) {
     this._id = _id;
-    this.email = email;
-    this.password = password;
     this.name = name;
+    this.review= review;
   }
 }

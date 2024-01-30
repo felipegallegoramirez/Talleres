@@ -1,18 +1,39 @@
-export class User {
+export class Actions {
   _id?: string;
-  email: string;
-  password: string;
-  name: string;
+  title: string;
+  state: string;
+  sumary: string;
+  monitoring: Array<{
+    id:string,
+    name:string
+  }>;
+  date: string;
+  worker: Array<{
+    id:string,
+    name:string
+  }>;
 
   constructor(
     _id :string = "",
-    email: string = "",
-    password: string = "",
-    name: string = "",
+    title: string = "",
+    state: string = "",
+    sumary: string = "",
+    monitoring: Array<{
+      id:string,
+      name:string
+    }>,
+    date: string = "",
+    worker: Array<{
+      id:string,
+      name:string
+    }>,
   ) {
     this._id = _id;
-    this.email = email;
-    this.password = password;
-    this.name = name;
+    this.title = title;
+    this.state = state;
+    this.sumary = sumary;
+    this.monitoring = monitoring;
+    this.date = date;
+    this.worker = worker;
   }
 }

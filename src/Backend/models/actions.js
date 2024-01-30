@@ -15,16 +15,16 @@ const StorageScheme = new mongoose.Schema(
       type: String,
       require: true,
     },
-    monitoring: {
+    monitoring: [{
       id: {
         type: String,
         require: true
       },
-      name: [{
+      name: {
         type: String,
         require: true
-      }]
-    },
+      }
+    }],
     date: [{
       type: String,
       require: true

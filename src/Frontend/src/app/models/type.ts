@@ -1,18 +1,21 @@
-export class User {
+export class Type {
   _id?: string;
-  email: string;
-  password: string;
   name: string;
+  type: Array<{
+    id:string,
+    name:string
+  }>;
 
   constructor(
     _id :string = "",
-    email: string = "",
-    password: string = "",
     name: string = "",
+    type: Array<{
+      id:string,
+      name:string
+    }>
   ) {
     this._id = _id;
-    this.email = email;
-    this.password = password;
     this.name = name;
+    this.type = type;
   }
 }
