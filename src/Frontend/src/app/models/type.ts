@@ -1,21 +1,24 @@
 export class Type {
   _id?: string;
-  name: string;
-  type: Array<{
+  model: string;
+  brand: string;
+  cars: Array<{
     id:string,
-    name:string
+    plate:string
   }>;
 
   constructor(
     _id :string = "",
-    name: string = "",
-    type: Array<{
+    model: string = "",
+    brand: string = "",
+    cars: Array<{
       id:string,
-      name:string
-    }>
+      plate:string
+    }> =[]
   ) {
     this._id = _id;
-    this.name = name;
-    this.type = type;
+    this.model = model;
+    this.brand = brand;
+    this.cars = cars;
   }
 }

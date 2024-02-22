@@ -13,7 +13,7 @@ const StorageScheme = new mongoose.Schema(
         require: true,
       },
       ciclic: {
-        type: Boolean,
+        type: Number,
         require: true,
       },
       minValue: {

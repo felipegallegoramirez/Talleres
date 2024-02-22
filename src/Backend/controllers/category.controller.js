@@ -15,6 +15,7 @@ CategoryCtrl.getCategorys = async (req, res, next) => {
 
 CategoryCtrl.createCategory = async (req, res, next) => {
     try{
+        console.log("asd")
         const { name, type} = req.body;
 
         const body = { name, type };

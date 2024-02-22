@@ -1,24 +1,21 @@
 export class Category {
   _id?: string;
-  model: string;
-  brand: string;
-  cars: Array<{
+  name: string;
+  type: Array<{
     id:string,
-    plate:string
+    name:string
   }>;
 
   constructor(
     _id :string = "",
-    model: string = "",
-    brand: string = "",
-    cars: Array<{
+    name: string = "",
+    type: Array<{
       id:string,
-      plate:string
-    }>
+      name:string
+    }> = []
   ) {
     this._id = _id;
-    this.model = model;
-    this.brand = brand;
-    this.cars = cars;
+    this.name = name;
+    this.type = type;
   }
 }
