@@ -7,22 +7,19 @@ export class Vehicle {
   km: number;
   actionsId: Array<string>;
   monitoringId: Array<string>;
-  lastmaintenance: Array<{
+  lastmaintenance:{
     date:string,
     Textdate:string
-  }>;
-  Nextmaintenance: Array<{
+  };
+  Nextmaintenance:{
     date:string,
     Textdate:string
-  }>;
-  type: Array<{
+  };
+  type:{
     id:string,
     name:string
-  }>;
-  category: Array<{
-    id:string,
-    name:string
-  }>;
+  };
+
 
   constructor(
     _id :string = "",
@@ -33,22 +30,18 @@ export class Vehicle {
     km: number = 0,
     actionsId: Array<string> =[],
     monitoringId: Array<string> =[],
-    lastmaintenance: Array<{
+    lastmaintenance:{
       date:string,
       Textdate:string
-    }>,
-    Nextmaintenance: Array<{
+    },
+    Nextmaintenance:{
       date:string,
       Textdate:string
-    }>,
-    type: Array<{
+    },
+    type:{
       id:string,
       name:string
-    }>,
-    category: Array<{
-      id:string,
-      name:string
-    }>,
+    },
   ) {
     this._id = _id;
     this.plate = plate;
@@ -61,6 +54,6 @@ export class Vehicle {
     this.lastmaintenance = lastmaintenance;
     this.Nextmaintenance = Nextmaintenance;
     this.type = type;
-    this.category = category;
+
   }
 }

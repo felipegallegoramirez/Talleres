@@ -1,72 +1,66 @@
 <div class="input">
     <input type="text" name="" id="" placeholder="Placa - Dueño">
     <span class="material-symbols-outlined">search</span>
-    <button (click)="mostrar(['add','oculter'],[])">Crear</button>
+    <button (click)="mostrar(['add','oculter','vehicle_create'],['vehicle_edit'])">Crear</button>
 </div>
 <div class="grid-list">
+
 <p>Placa</p>
 <p>Dueño</p>
 <p>Ult mantenimiento</p>
 <p>Prox mantenimiento</p>
 <p> </p>
+<p> </p>
+
 <!-- info info info -->
-<p>QCO90D</p>
-<p>Guillermo Leon Gallego</p>
-<p>20/01/2003</p>
-<p>20/06/2003</p>
-<button routerLink="/car/asd">Visualizar</button>
+<ng-container *ngFor="let vehicle of vehicles">
+    <p>{{vehicle.plate}}</p>
+    <p>{{vehicle.ownerName}}</p>
+    <p>{{vehicle.lastmaintenance.Textdate}}</p>
+    <p>{{vehicle.Nextmaintenance.Textdate}}</p>
+    <button routerLink="/car/{{vehicle._id}}">Visualizar</button>
+    <button (click)="editar(vehicle._id||'')">Modificar</button>
+</ng-container>
 </div>
 
 <div id="oculter" (click)="ocultar(['add','oculter'])" class="oculter oculto"></div>
 
 <div id="add" class="inputModal oculto">
-    <div class="inputModal__select">
-        <span>Selecione la accion</span>
-        <select name="" id="">
-            <option value="0">Nuevo</option>
-        </select>
-    </div>
     <div class="inputModal__text">
         <span>Placa</span>
-        <input type="text">
+        <input id="vehicle_plate" type="text">
     </div>
     <div class="inputModal__text">
         <span>Nombre dueño</span>
-        <input type="text">
+        <input id="vehicle_ownerName" type="text">
     </div>
     <div class="inputModal__text">
         <span>Cedula dueño</span>
-        <input type="text">
+        <input id="vehicle_ownerDni" type="text">
     </div>
     <div class="inputModal__text">
         <span>Año</span>
-        <input type="text">
+        <input id="vehicle_year" type="text">
     </div>
     <div class="inputModal__text">
         <span>Km</span>
-        <input type="text">
-    </div>
-    <div class="inputModal__select">
-        <span>Selecione la categoria</span>
-        <select name="" id="">
-            <option value="0">Deportivo</option>
-        </select>
+        <input  id="vehicle_km" type="text">
     </div>
     <div class="inputModal__select">
         <span>Selecione el modelo</span>
-        <select name="" id="">
-            <option value="0">Bmw 240</option>
+        <select id="vehicle_type" name="">
+            <option *ngFor="let type of types" value="{{type._id}}" >{{type.model}}</option>
         </select>
     </div>
 
     <div class="inputModal__actions">
-        <div class="create oculto">
-            <button>Crear</button>
+        <div id="vehicle_create" class="create">
+            <button (click)="vehicle_create()">Crear</button>
         </div>
 
-        <div class="edit">
-            <button>Editar</button>
-            <button>Eliminar</button>
+        <div id="vehicle_edit" class="edit oculto">
+            <button (click)="vehicle_edit()">Editar</button>
+            <button (click)="vehicle_delete()">Eliminar</button>
         </div>
     </div>
 

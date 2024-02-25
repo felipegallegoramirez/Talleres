@@ -32,7 +32,7 @@ MonitoringCtrl.getMonitoring = async (req, res, next) => {
     try{
         const { id } = req.params;
         const save = await Monitoring.findById(id);
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 
@@ -43,7 +43,7 @@ MonitoringCtrl.editMonitoring = async (req, res, next) => {
     try{
         const { id } = req.params;
         save = await Monitoring.findByIdAndUpdate(id, {$set: req.body}, {new: true});
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
     res.status(400).send(err)
 }

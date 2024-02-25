@@ -32,7 +32,7 @@ ActionsCtrl.getActions = async (req, res, next) => {
     try{
         const { id } = req.params;
         const save = await Actions.findById(id);
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 
@@ -43,7 +43,7 @@ ActionsCtrl.editActions = async (req, res, next) => {
     try{
         const { id } = req.params;
         save = await Actions.findByIdAndUpdate(id, {$set: req.body}, {new: true});
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
     res.status(400).send(err)
 }

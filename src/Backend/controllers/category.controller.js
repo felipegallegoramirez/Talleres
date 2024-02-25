@@ -33,7 +33,7 @@ CategoryCtrl.getCategory = async (req, res, next) => {
     try{
         const { id } = req.params;
         const save = await Category.findById(id);
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
         res.status(400).send(err)
 
@@ -44,7 +44,7 @@ CategoryCtrl.editCategory = async (req, res, next) => {
     try{
         const { id } = req.params;
         save = await Category.findByIdAndUpdate(id, {$set: req.body}, {new: true});
-        res.status(400).send(save)
+        res.status(200).send(save)
     }catch(err){
     res.status(400).send(err)
 }

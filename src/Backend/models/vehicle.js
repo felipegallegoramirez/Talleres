@@ -46,7 +46,7 @@ const StorageScheme = new mongoose.Schema(
         type: String,
       },
     },
-    type: [{
+    type: {
       id: {
         type: String,
         require: true,
@@ -55,17 +55,8 @@ const StorageScheme = new mongoose.Schema(
         type: String,
         require: true,
       },
-    }],
-    category: [{
-      id: {
-        type: String,
-        require: true,
-      },
-      name: {
-        type: String,
-        require: true,
-      },
-    }],
+    },
+
 
     },
 

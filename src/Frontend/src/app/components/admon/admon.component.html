@@ -44,53 +44,42 @@
     <div id="op2" class="inputModal__op">
         <div class="inputModal__select">
             <span>Seleccione el modelo</span>
-            <select name="" id="">
-                <option value="0">Nuevo</option>
+            <select id="type" (change)="editar('type',['type_create'],['type_edit'],1)" name="">
+                <option value="0" >Nuevo</option>
+                <option *ngFor="let type of types" value="{{type._id}}" >{{type.model}}</option>
             </select>
         </div>
         <div class="inputModal__select">
-            <span>Seleccione la categoria del modelo</span>
-            <select name="" id="">
-                <option value="0">Nuevo</option>
+            <span>Seleccione la categoria</span>
+            <select name="" id="type_category">
+                <option *ngFor="let category of categorys" value="{{category._id}}" >{{category.name}}</option>
             </select>
         </div>
         <div class="inputModal__text">
             <span>Modelo</span>
-            <input type="text">
+            <input id="type_model" type="text">
         </div>
         <div class="inputModal__text">
             <span>Marca</span>
-            <input type="text">
+            <input id="type_brand"  type="text">
         </div>
         <div class="inputModal__check">
             <span>Requerimientos</span>
             <div class="inputModal__check__grid">
-                <div>
-                    <input type="checkbox">
-                    <span> Prueba 1</span>
-                </div>
-                <div>
-                    <input type="checkbox">
-                    <span> Prueba 2</span>
-                </div>
-                <div>
-                    <input type="checkbox">
-                    <span> Prueba 3</span>
-                </div>
-                <div>
-                    <input type="checkbox">
-                    <span> Prueba 4</span>
+                <div *ngFor="let monitoring of monitorings">
+                    <input class="type_monitoring" type="checkbox"  >
+                    <span>{{monitoring.name}}</span>
                 </div>
             </div>
         </div>
         <div class="inputModal__actions">
-            <div class="create oculto">
-                <button>Crear</button>
+            <div id="type_create" class="create ">
+                <button (click)="type_create()">Crear</button>
             </div>
 
-            <div class="edit">
-                <button>Editar</button>
-                <button>Eliminar</button>
+            <div id="type_edit" class="edit oculto">
+                <button (click)="type_edit()">Editar</button>
+                <button (click)="type_delete()">Eliminar</button>
             </div>
         </div>
     </div>
