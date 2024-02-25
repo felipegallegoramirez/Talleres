@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AdmonComponent } from './components/admon/admon.component';
 import { ListCarsComponent } from './components/list-cars/list-cars.component';
 import { ViewCarsComponent } from './components/view-cars/view-cars.component';
+import { ChangelogComponent } from './components/changelog/changelog.component';
 
 
 
@@ -31,7 +32,8 @@ const routes: Routes = [
     LoginComponent,
     AdmonComponent,
     ListCarsComponent,
-    ViewCarsComponent
+    ViewCarsComponent,
+    ChangelogComponent
   ],
   imports: [
     BrowserModule,

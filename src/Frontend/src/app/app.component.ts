@@ -8,12 +8,20 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'Taller';
+  changelog:boolean=false
 
   constructor(private router: Router) {}
   ngOnInit() {
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
+
         if (event.url != '/#/aboutus' && event.url != '/#/login') {
+
+              // ! Recuerde cambiar el changelog
+          if(localStorage.getItem("version")!="2"){
+            this.changelog=true
+          }
           let x = localStorage.getItem('id');
           if (!x) {
             window.location.replace('http://localhost:4200/#/login');
