@@ -34,10 +34,10 @@ const StorageScheme = new mongoose.Schema(
         type: String,
         require: true
       },
-      name: [{
+      name: {
         type: String,
         require: true
-      }]
+      }
     },
   },
 

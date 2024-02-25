@@ -8,10 +8,10 @@ export class Actions {
     name:string
   }>;
   date: string;
-  worker: Array<{
+  worker: {
     id:string,
     name:string
-  }>;
+  };
 
   constructor(
     _id :string = "",
@@ -23,10 +23,10 @@ export class Actions {
       name:string
     }>,
     date: string = "",
-    worker: Array<{
+    worker: {
       id:string,
       name:string
-    }>,
+    },
   ) {
     this._id = _id;
     this.title = title;

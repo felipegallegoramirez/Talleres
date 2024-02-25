@@ -33,14 +33,23 @@ export class Vehicle {
     lastmaintenance:{
       date:string,
       Textdate:string
+    }={
+      date:"",
+      Textdate:""
     },
     Nextmaintenance:{
       date:string,
       Textdate:string
+    }={
+      date:"",
+      Textdate:""
     },
     type:{
       id:string,
       name:string
+    }={
+      id:"",
+      name:""
     },
   ) {
     this._id = _id;

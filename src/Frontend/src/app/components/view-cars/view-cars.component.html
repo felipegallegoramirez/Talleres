@@ -1,41 +1,23 @@
 <div class="principal">
   <div class="principal__info">
     <p><b>Placa</b></p>
-    <p>QCO90D</p>
+    <p>{{vehiculo.plate}}</p>
     <p><b>Nombre Dueño</b></p>
-    <p>Guillermo Leon Gallego Bedoya</p>
+    <p>{{vehiculo.ownerName}}</p>
     <p><b>Cedula dueño</b></p>
-    <p>1001418934</p>
+    <p>{{vehiculo.dniOwner}}</p>
     <p><b>Año</b></p>
-    <p>2015</p>
+    <p>{{vehiculo.year}}</p>
     <p><b>Kilometros</b></p>
-    <p>140000</p>
-    <p><b>Marca</b></p>
-    <p>Auteco</p>
+    <p>{{vehiculo.km}}</p>
     <p><b>Modelo</b></p>
-    <p>Boxer ct100</p>
+    <p>{{vehiculo.type.name}}</p>
   </div>
   <div class="principal__actions">
-    <p><b>Aceite</b></p>
-    <p class="cambio">120000 kms</p>
-    <p><b>Liquido Frenos</b></p>
-    <p class="estable">120000 kms</p>
-    <p><b>Carburador</b></p>
-    <p class="estable">120000 kms</p>
-    <p><b>Lorem</b></p>
-    <p class="estable">0 kms</p>
-    <p><b>Lorem</b></p>
-    <p class="estable">0 kms</p>
-    <p><b>Lorem</b></p>
-    <p class="estable">0 kms</p>
-    <p><b>Lorem</b></p>
-    <p class="estable">0 kms</p>
-    <p><b>Lorem</b></p>
-    <p class="estable">0 kms</p>
-    <p><b>Lorem</b></p>
-    <p class="estable">0 kms</p>
-    <p><b>Lorem</b></p>
-    <p class="estable">0 kms</p>
+    <ng-container *ngFor="let monitoring of monitorings">
+    <p><b>{{monitoring.name}}</b></p>
+    <p class="cambio"></p>
+    </ng-container>
     
   </div>
 </div>
@@ -45,33 +27,25 @@
 </div>
 
 <div class="history">
-  <div class="history__card">
+  <div *ngFor="let action of actions" class="history__card">
     <div class="history__card__title">
-      <h2>titulo</h2>
+      <h2>{{action.title}}</h2>
       <div>
-        <h4 class="gray">Felipe Gallego</h4>
-        <h4>20/01/2003</h4>
+        <h4 class="gray">{{action.worker.name}}</h4>
+        <h4>{{action.date}}</h4>
       </div>
     </div>
     <h3>Situacion</h3>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat,
-      perspiciatis accusantium ipsam error provident quo incidunt sed, soluta
-      porro officia impedit earum esse beatae quod, exercitationem delectus
-      consequuntur doloribus neque.
+      {{action.state}}
     </p>
     <h3>Resumen trabajo</h3>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa maxime
-      voluptatibus est illo similique fugiat, corporis quae veniam eligendi et
-      autem deserunt beatae dignissimos dolorem nostrum magni tenetur dolor
-      delectus!
+      {{action.sumary}}
     </p>
     <h3>Acciones</h3>
-    <div class="history__card__actions">
-      <p><b>Aceite</b></p>
-      <p><b>Liquido frenos</b></p>
-      <p><b>Presion llantas</b></p>
+    <div *ngFor="let monitoring of action.monitoring" class="history__card__actions">
+      <p><b>{{monitoring.name}}</b></p>
     </div>
   </div>
 </div>
@@ -85,45 +59,34 @@
 <div id="review" class="inputModal oculto">
   <div class="inputModal__text">
     <span>Titulo</span>
-    <input type="text" />
+    <input id="action_title" type="text" />
   </div>
   <div class="inputModal__textarea">
     <span>Estado vehiculo</span>
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <textarea id="action_state" name=""  cols="30" rows="10"></textarea>
   </div>
   <div class="inputModal__textarea">
     <span>Resumen</span>
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <textarea id="action_sumary" name=""  cols="30" rows="10"></textarea>
   </div>
   <div class="inputModal__check">
     <span>Requerimientos</span>
     <div class="inputModal__check__grid">
-      <div>
-        <input type="checkbox" />
-        <span> Prueba 1</span>
+      <div *ngFor="let monitoring of monitorings">
+          <input class="action_monitoring" type="checkbox"  >
+          <span>{{monitoring.name}}</span>
       </div>
-      <div>
-        <input type="checkbox" />
-        <span> Prueba 2</span>
-      </div>
-      <div>
-        <input type="checkbox" />
-        <span> Prueba 3</span>
-      </div>
-      <div>
-        <input type="checkbox" />
-        <span> Prueba 4</span>
-      </div>
-    </div>
   </div>
   <div class="inputModal__actions">
-    <div class="create ">
-      <button>Crear</button>
-    </div>
+    <div class="inputModal__actions">
+      <div id="action_create" class="create ">
+          <button (click)="action_create()">Crear</button>
+      </div>
 
-    <div class="edit oculto">
-      <button>Editar</button>
-      <button>Eliminar</button>
-    </div>
+      <div id="action_edit" class="edit oculto">
+          <button (click)="action_edit()">Editar</button>
+          <button (click)="action_delete()">Eliminar</button>
+      </div>
+  </div>
   </div>
 </div>

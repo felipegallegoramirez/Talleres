@@ -89,17 +89,19 @@ export class ListCarsComponent implements OnInit {
     const year=(<HTMLInputElement>document.getElementById("vehicle_year")).value;
     const km=(<HTMLInputElement>document.getElementById("vehicle_km")).value;
     const typeid=(<HTMLInputElement>document.getElementById("vehicle_type")).value;
+    const typelocate = this.types.filter(x=>x._id==typeid)[0]
     const type={
       id:typeid,
-      name:this.types.filter(x=>x._id==typeid)[0].model
+      name:typelocate.model
     }
 
+    const monitoring= typelocate.monitoringId
     const relleno={
       date:"No calculado",
       Textdate:"No calculado"
     }
     
-    let vehicle=new Vehicle(undefined,plate,ownerName,Number(dniOwner),Number(year),Number(km),[],[],relleno,relleno,type)
+    let vehicle=new Vehicle(undefined,plate,ownerName,Number(dniOwner),Number(year),Number(km),[],monitoring,relleno,relleno,type)
 
 
 
