@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
 
       if(res._id){
         localStorage.setItem("id",res._id)
-        window.location.replace('http://localhost:4200/#/panel');
+        window.location.replace(`${environment.baseUrl}panel`);
       }
     },res=>{
       console.log(res)
