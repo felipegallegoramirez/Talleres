@@ -2,13 +2,13 @@ import { Injectable } from "@angular/core";
 import { HttpClient  } from "@angular/common/http";
 
 import { Type } from "../models/type";
-
+import { environment } from "src/environments/environment";
 @Injectable({
   providedIn: 'root'
 })
 export class TypeService {
   types: Type[] = [];
-  readonly URL_API = "http://localhost:3000/api/type";
+  readonly URL_API = `${environment.backend}/api/type`;
 
 
   constructor(private http: HttpClient) {

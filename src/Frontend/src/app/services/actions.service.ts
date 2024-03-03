@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient  } from "@angular/common/http";
-
 import { Actions } from "../models/actions";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActionsService {
   actionss: Actions[] = [];
-  readonly URL_API = "http://localhost:3000/api/actions";
+  readonly URL_API = `${environment.backend}/api/actions`;
 
 
   constructor(private http: HttpClient) {

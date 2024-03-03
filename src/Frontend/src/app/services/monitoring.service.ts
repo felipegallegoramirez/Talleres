@@ -2,13 +2,14 @@ import { Injectable } from "@angular/core";
 import { HttpClient  } from "@angular/common/http";
 
 import { Monitoring } from "../models/monitoring";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MonitoringService {
   monitorings: Monitoring[] = [];
-  readonly URL_API = "http://localhost:3000/api/monitoring";
+  readonly URL_API = `${environment.backend}/api/monitoring`;
 
 
   constructor(private http: HttpClient) {

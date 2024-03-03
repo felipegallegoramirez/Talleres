@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient  } from "@angular/common/http";
 
 import { User } from "../models/user";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,8 @@ import { User } from "../models/user";
 export class UserService {
   selectedUser: User;
   users: User[] = [];
-  readonly URL_API = "http://localhost:3000/api/user";
-  readonly URL_API_login = "http://localhost:3000/api/login";
+  readonly URL_API = `${environment.backend}/api/user`;
+  readonly URL_API_login = `${environment.backend}/api/login`;
 
 
   constructor(private http: HttpClient) {

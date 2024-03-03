@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent {
           }
           let x = localStorage.getItem('id');
           if (!x) {
-            window.location.replace('http://localhost:4200/#/login');
+            window.location.replace(`${environment.baseUrl}login`);
           }
         }
       }
