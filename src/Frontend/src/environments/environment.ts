@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "https://talleres-coral.vercel.app/#/",
-  backend:"https://talleres-ba1l.onrender.com"
+  baseUrl: "http://localhost:4200//#/",
+  backend:"http://localhost:3000/"
 };
 
 /*
