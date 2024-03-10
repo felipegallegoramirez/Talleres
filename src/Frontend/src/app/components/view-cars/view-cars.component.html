@@ -9,14 +9,18 @@
     <p><b>Año</b></p>
     <p>{{vehiculo.year}}</p>
     <p><b>Kilometros</b></p>
-    <p>{{vehiculo.km}}</p>
+    <div class="principal__info-div">
+      <input id="km" value="{{vehiculo.km}}">
+      <button (click)="actualizarKM()">actualizar</button>
+    </div>
+
     <p><b>Modelo</b></p>
     <p>{{vehiculo.type.name}}</p>
   </div>
   <div class="principal__actions">
     <ng-container *ngFor="let monitoring of monitorings">
-    <p><b>{{monitoring.name}}</b></p>
-    <p class="cambio"></p>
+    <p><b>{{monitoring.monitoring.name}}</b></p>
+    <p class="monitoring_selecter">{{monitoring.actu}}</p>
     </ng-container>
     
   </div>
@@ -74,7 +78,7 @@
     <div class="inputModal__check__grid">
       <div *ngFor="let monitoring of monitorings">
           <input class="action_monitoring" type="checkbox"  >
-          <span>{{monitoring.name}}</span>
+          <span>{{monitoring.monitoring.name}}</span>
       </div>
   </div>
   <div class="inputModal__actions">

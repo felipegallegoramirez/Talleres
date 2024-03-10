@@ -95,7 +95,16 @@ export class ListCarsComponent implements OnInit {
       name:typelocate.model
     }
 
-    const monitoring= typelocate.monitoringId
+    let monitoring:Array<{
+      id:string,
+      ult:string
+    }> =[];
+    typelocate.monitoringId.forEach(x=>{
+      monitoring.push({
+          id:x,
+          ult:"0"
+      })
+    })
     const relleno={
       date:"No calculado",
       Textdate:"No calculado"

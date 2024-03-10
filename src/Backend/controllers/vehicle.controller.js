@@ -15,9 +15,9 @@ VehicleCtrl.getVehicles = async (req, res, next) => {
 
 VehicleCtrl.createVehicle = async (req, res, next) => {
     try{
-        const { plate, ownerName, dniOwner, year, km, actionsId,monitoringId,lastmaintenance,Nextmaintenance,type } = req.body;
+        const { plate, ownerName, dniOwner, year, km, actionsId,monitoring,lastmaintenance,Nextmaintenance,type } = req.body;
 
-        const body = { plate, ownerName, dniOwner, year, km, actionsId,monitoringId,lastmaintenance,Nextmaintenance,type };
+        const body = { plate, ownerName, dniOwner, year, km, actionsId,monitoring,lastmaintenance,Nextmaintenance,type };
         var save= await Vehicle.create(body);
         res.status(200).send(save)
     }catch(err){

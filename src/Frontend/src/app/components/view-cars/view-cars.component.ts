@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , NgZone } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -26,10 +26,11 @@ export class ViewCarsComponent implements OnInit {
     private activatedRoute:ActivatedRoute,
     private monitoringService:MonitoringService,
     private actionService:ActionsService,
-    private userService:UserService) { }
+    private userService:UserService,
+    private ngZone: NgZone) { }
 
   vehiculo:Vehicle= new Vehicle();
-  monitorings: Array<Monitoring> = []
+  monitorings: Array<any> = []
   actions: Array<Actions> =[]
 
   ngOnInit(): void {
@@ -38,13 +39,27 @@ export class ViewCarsComponent implements OnInit {
 
       this.vehicleService.getVehicle(idcar).subscribe(res=>{
         this.vehiculo= res as Vehicle
+        var i=0;
+        this.vehiculo.monitoring.forEach(r=>{
+          this.monitoringService.getMonitoring(r.id).subscribe((a)=>{
 
-        this.vehiculo.monitoringId.forEach(r=>{
-          this.monitoringService.getMonitoring(r).subscribe((a)=>{
-            this.monitorings.push(a)
+            this.monitorings.push({
+              monitoring:a,
+              actu:r.ult
+            })
+            i++;
+            if(this.vehiculo.monitoring.length==i){
+              setTimeout(() => {
+                // Invocar la función después de 1 segundo
+                this.ngZone.run(() => {
+                  this.action_data()
+                });
+              }, 1000);
+
+            }
+
           })
         })
-
       this.action_get()
       
 
@@ -75,22 +90,45 @@ export class ViewCarsComponent implements OnInit {
 
   //TODO: Action -----------------
 
-  action_data(id:string){
-    let x =this.actions.find(x=>x._id==id);
-    (<HTMLInputElement>document.getElementById("action_title")).value=x?.title || "";
-    (<HTMLInputElement>document.getElementById("action_state")).value=x?.state || "";
-    (<HTMLInputElement>document.getElementById("action_sumary")).value=x?.sumary || "";
+  action_data(){
 
-    let monitoring= (<HTMLCollection>document.getElementsByClassName("action_monitoring"))
-    /*
-        for(let i=0;i<this.monitorings.length;i++){
-      if(x){      
-        if(x?.monitoringId.filter(e=>this.monitorings[i]._id==e).length>0){
-          (<HTMLInputElement>monitoring[i]).checked=true;
+    let monitoring = document.getElementsByClassName("monitoring_selecter")
+    
+    for(let r= 0;r<this.monitorings.length;r++){
+      let x= this.monitorings[r]
+      let state="estable"
+      for(let i= 0;i<x.monitoring.review.length;i++){
+        let revision= this.monitorings[r].actu
+        console.log(revision)
+        console.log(Number(x.monitoring.review[i].Value)>Number(revision)&&Number(x.monitoring.review[i].Value)<this.vehiculo.km)
+
+        if(revision){
+          if(x.monitoring.review[i].ciclic==0){
+            if(Number(x.monitoring.review[i].Value)>Number(revision)&&Number(x.monitoring.review[i].Value)<this.vehiculo.km){
+              state="cambio";
+              break;
+            }else if(Number(x.monitoring.review[i].Value)*0.8>this.vehiculo.km&&Number(x.monitoring.review[i].Value)>Number(revision)){
+              state="casi";
+              break;
+            }
+          }else if(x.monitoring.review[i].ciclic==1){
+            if(this.vehiculo.km-Number(revision)>Number(x.monitoring.review[i].Value)){
+              state="cambio";
+              break;
+            }else if(this.vehiculo.km-Number(revision)>Number(x.monitoring.review[i].Value)*0.8){
+              state="casi";
+              break;
+            }
+          }
         }
       }
+      monitoring[r].classList.remove("estable")
+      monitoring[r].classList.remove("casi")
+      monitoring[r].classList.remove("cambio")
+      monitoring[r].classList.add(state)
+      
+
     }
-    */
 
   }
 
@@ -122,15 +160,17 @@ export class ViewCarsComponent implements OnInit {
       for(let i=0;i<monitoring.length;i++){
         if((<HTMLInputElement>monitoring[i]).checked==true){
           action.monitoring.push({
-            id:this.monitorings[i]._id||"",
-            name:this.monitorings[i].name||""
+            id:this.monitorings[i].monitoring._id||"",
+            name:this.monitorings[i].monitoring.name||""
           })
+          this.vehiculo.monitoring[this.vehiculo.monitoring.findIndex(x=>x.id==this.monitorings[i].monitoring._id)].ult=this.vehiculo.km+""
         }
       }
   
       this.actionService.postActions(action).subscribe(sex=>{
         if(sex._id){
           this.vehiculo.actionsId.push(sex._id)
+          this.vehiculo.lastmaintenance.Textdate=fecha
           this.vehicleService.putVehicle(this.vehiculo,this.vehiculo._id||"").subscribe(as=>{
             this.action_clear()
             this.action_get()
@@ -180,8 +220,8 @@ export class ViewCarsComponent implements OnInit {
       for(let i=0;i<monitoring.length;i++){
         if((<HTMLInputElement>monitoring[i]).checked==true){
           action.monitoring.push({
-            id:this.monitorings[i]._id||"",
-            name:this.monitorings[i].name||""
+            id:this.monitorings[i].monitoring._id||"",
+            name:this.monitorings[i].monitoring.name||""
           })
         }
       }
@@ -210,6 +250,14 @@ export class ViewCarsComponent implements OnInit {
       this.actionService.getActions(r).subscribe(a=>{
         this.actions.push(a)
       })
+    })
+  }
+
+  actualizarKM(){
+    this.vehiculo.km=Number((<HTMLInputElement>document.getElementById("km")).value)
+    console.log(this.vehiculo.km)
+    this.vehicleService.putVehicle(this.vehiculo,this.vehiculo._id||"").subscribe(as=>{
+      this.action_data()
     })
   }
 

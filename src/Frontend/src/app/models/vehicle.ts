@@ -6,7 +6,10 @@ export class Vehicle {
   year: number;
   km: number;
   actionsId: Array<string>;
-  monitoringId: Array<string>;
+  monitoring: Array<{
+    id:string,
+    ult:string
+  }>;
   lastmaintenance:{
     date:string,
     Textdate:string
@@ -29,7 +32,10 @@ export class Vehicle {
     year: number = 0,
     km: number = 0,
     actionsId: Array<string> =[],
-    monitoringId: Array<string> =[],
+    monitoring: Array<{
+      id:string,
+      ult:string
+    }> =[],
     lastmaintenance:{
       date:string,
       Textdate:string
@@ -59,7 +65,7 @@ export class Vehicle {
     this.year = year;
     this.km = km;
     this.actionsId = actionsId;
-    this.monitoringId = monitoringId;
+    this.monitoring = monitoring;
     this.lastmaintenance = lastmaintenance;
     this.Nextmaintenance = Nextmaintenance;
     this.type = type;

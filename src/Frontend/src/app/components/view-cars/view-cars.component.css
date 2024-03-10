@@ -64,9 +64,15 @@ display: flex;
     margin-left: 20px;
 }
 
+
 .cambio{
     border-bottom: 4px solid var(--r);
 }
+
+.casi{
+    border-bottom: 4px solid yellow;
+}
+
 
 .estable{
     border-bottom: 4px solid var(--b1);
@@ -196,4 +202,9 @@ margin-bottom: 20px;
     justify-content: flex-end;
 
     padding: 20px;
+}
+
+.principal__info-div>input{
+    width: 100px;
+    margin-right: 10px;
 }

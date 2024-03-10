@@ -27,8 +27,11 @@ const StorageScheme = new mongoose.Schema(
     actionsId: [{
       type: String,
     }],
-    monitoringId: [{
-      type: String,
+    monitoring: [{
+      id:{
+        type: String},
+      ult:{
+        type: String},
     }],
     lastmaintenance: {
       date: {
